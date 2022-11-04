@@ -1,0 +1,6 @@
+project: micropython
+target: micropython
+
+cmds:
+  - cmd: /repo/ports/unix/micropython @@
+    libfuzzer: true

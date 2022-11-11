@@ -1,6 +1,8 @@
 project: micropython
-target: micropython
+target: fuzz-execute-from-string
 
 cmds:
-  - cmd: /repo/ports/unix/micropython @@
+  - cmd: /fuzz-execute-from-string
     libfuzzer: true
+    # for some reason this target crashes on inputs >54 bytes
+    max_length: 54

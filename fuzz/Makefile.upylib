@@ -62,14 +62,14 @@ endif
 # The unix port of MicroPython on OSX must be compiled with clang,
 # while cross-compile ports require gcc, so we test here for OSX and
 # if necessary override the value of 'CC' set in py/mkenv.mk
-ifeq ($(UNAME_S),Darwin)
+#ifeq ($(UNAME_S),Darwin)
 CC = clang
 # Use clang syntax for map file
 LDFLAGS_ARCH = -Wl,-map,$@.map
-else
+#else
 # Use gcc syntax for map file
-LDFLAGS_ARCH = -Wl,-Map=$@.map,--cref
-endif
+#LDFLAGS_ARCH = -Wl,-Map=$@.map,--cref
+#endif
 LDFLAGS += $(LDFLAGS_MOD) $(LDFLAGS_ARCH) -lm $(LDFLAGS_EXTRA)
 
 ifeq ($(MICROPY_FORCE_32BIT),1)
